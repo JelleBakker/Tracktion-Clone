@@ -12,5 +12,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - run: git clone --recurse-submodules https://github.com/Tracktion/tracktion_engine.git
+      - run: |
+          git clone --recurse-submodules https://github.com/Tracktion/tracktion_engine.git
+          cd tracktion_engine
+          git checkout develop
+          mkdir build
+          cd build
+          cmake ../tracktion_engine -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=arm64
+          cmake --build . --config Release
       
