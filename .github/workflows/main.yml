@@ -15,7 +15,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: |
-          cd tracktion_engine-develop
           mkdir build
           cd build
           cmake ../tracktion_engine-develop -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=arm64
